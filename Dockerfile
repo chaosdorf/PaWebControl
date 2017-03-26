@@ -7,5 +7,5 @@ ADD source /code
 
 WORKDIR /code
 EXPOSE 8080
-ENV PULSE=localhost
+ENV PULSE_SERVER=localhost
 CMD php -S "[::]:8080" -t /code
