@@ -6,6 +6,6 @@ RUN apk add php5-cli php5-json
 WORKDIR /code
 COPY source ./
 EXPOSE 8080
-ENV PULSE_SERVER=localhost
+ENV PULSE_SERVER=pulse
 
 CMD php5 -S "[::]:8080" -t .
