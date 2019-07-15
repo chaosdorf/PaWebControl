@@ -1,11 +1,13 @@
-FROM alpine:edge
+FROM openjdk:8-alpine
 
-RUN apk add --update --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted pulseaudio-utils
-RUN apk add php5-cli php5-json
+RUN apk add pulseaudio-utils npm
+RUN npm install -g grunt-cli
 
 WORKDIR /code
-COPY source ./
-EXPOSE 8080
+COPY . ./
+EXPOSE 8000
 ENV PULSE_SERVER=pulse
 
-CMD php5 -S "[::]:8080" -t .
+RUN npm install
+RUN npm run build
+CMD npm run start
