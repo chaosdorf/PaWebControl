@@ -1,6 +1,8 @@
 PaWebControl
 ============
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Siot/PaWebControl.svg)](https://greenkeeper.io/)
+
 PulseAudio Web Volume Control
 
 A pavucontrol web interface.
@@ -9,16 +11,18 @@ A pavucontrol web interface.
 
 Requirements:
 
-- PHP web server
+- NodeJS
 - PulseAudio pactl command
 
 Installation:
 
-Setup a php web server on the computer you want to control PulseAudio and copy files inside.
+- Clone this repo.
 
-Simplest way using standalone php web server:
+- Run `$ npm install && npm run build`
 
-  $ php -S 0.0.0.0:8000 -t public_html/
+Start server:
+
+- Run `$ npm run start`
 
 Usage:
 
