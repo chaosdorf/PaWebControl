@@ -1,0 +1,9 @@
+dist: xenial
+language: node_js
+node_js:
+  - "lts/*"
+addons:
+  sonarcloud:
+    organization: "siot-github"
+script:
+  - sonar-scanner

@@ -1,0 +1,68 @@
+{
+  "name": "pawebcontrol",
+  "version": "2.0.0",
+  "description": "PulseAudio Web Volume Control",
+  "main": "src/backend/index.js",
+  "scripts": {
+    "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+    "prebuild": "rimraf dist && mkdir dist",
+    "build": "cp -r src/frontend dist/client && webpack",
+    "start": "ts-node src/backend/index.ts",
+    "start:dev": "ts-node-dev $NODE_DEBUG_OPTION --no-notify src/backend/index.ts && webpack --watch",
+    "test": "jest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "{src,test}/**/*.ts": [
+      "prettier --write",
+      "tslint --fix",
+      "git add"
+    ],
+    "*.{json,md,js,html}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Siot/PaWebControl.git"
+  },
+  "keywords": [
+    "PulseAudio"
+  ],
+  "author": "Llorenç Garcia Martinez",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/Siot/PaWebControl/issues"
+  },
+  "homepage": "https://github.com/Siot/PaWebControl#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "jquery": "^3.4.0",
+    "socket.io": "^2.1.1",
+    "sortablejs": "^1.10.0-rc3",
+    "ts-node": "^8.0.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/socket.io": "^2.1.2",
+    "husky": "^3.0.0",
+    "jest": "^24.0.0",
+    "lint-staged": "^9.0.0",
+    "prettier": "^1.18.2",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^24.0.0",
+    "ts-node-dev": "^1.0.0-pre.26",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.17.0",
+    "typescript": "^3.1.6",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.6"
+  }
+}
